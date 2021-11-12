@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activies.NovoLancamentoActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/novo_lancamento_valor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="25dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/novo_lancamento_valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:inputType="numberDecimal"
+            android:hint="R$"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/novo_lancamento_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/novo_lancamento_valor_layout"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp">
+        <Button
+            android:layout_weight="1"
+            android:layout_marginRight="25dp"
+            android:id="@+id/novo_lancamento_saida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saída"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/red"
+            />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/novo_lancamento_entrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrada"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/green"
+            />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/novo_lancamento_categoria_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/novo_lancamento_tipo"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="25dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/novo_lancamento_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:inputType="textAutoCorrect"
+            android:hint="Categria"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/novo_lancamento_descricao_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/novo_lancamento_categoria_layout"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="25dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/novo_lancamento_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:inputType="textAutoCorrect"
+            android:hint="Descrição"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/novo_lancamento_data_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/novo_lancamento_descricao_layout"
+        android:layout_marginVertical="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_weight="1"
+            android:id="@+id/novo_lancamento_data_mes_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/novo_lancamento_categoria_layout"
+            android:layout_marginHorizontal="25dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/novo_lancamento_data_mes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:inputType="number"
+                android:hint="Mês"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_weight="1"
+            android:id="@+id/novo_lancamento_data_ano_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/novo_lancamento_data_mes_layout"
+            android:layout_marginHorizontal="25dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/novo_lancamento_data_ano"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:inputType="number"
+                android:hint="Ano"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/novo_lancamento_enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="85dp"
+        />
+
+</RelativeLayout>
