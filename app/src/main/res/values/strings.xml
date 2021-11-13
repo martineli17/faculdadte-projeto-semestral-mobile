@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Trabalho_Lancamentos</string>
     <string name="error_api">Ocorreu um erro no processamento</string>
+    <string name="novo_lancamento_salvo_sucesso">Lançamento registrado</string>
+    <string name="novo_lancamento_title_1">Novo</string>
+    <string name="novo_lancamento_title_2">Lançamento</string>
+    <string name="novo_lancamento_valor_hint">R$</string>
+    <string name="novo_lancamento_tipo_saida">Saída</string>
+    <string name="novo_lancamento_tipo_entrada">Entrada</string>
+    <string name="novo_lancamento_categoria">Categria</string>
+    <string name="novo_lancamento_descricao">Descrição</string>
+    <string name="novo_lancamento_mes">Mês</string>
+    <string name="novo_lancamento_ano">Ano</string>
+    <string name="novo_lancamento_enviar">Salvar</string>
 </resources>

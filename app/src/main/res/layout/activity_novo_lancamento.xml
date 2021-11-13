@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/novo_lancamento_content"
     tools:context=".ui.activies.NovoLancamentoActivity">
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +31,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Novo"
+                        android:text="@string/novo_lancamento_title_1"
                         android:gravity="center_horizontal"
                         android:textSize="25sp"
                         android:textStyle="bold"
@@ -40,7 +41,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lançamento"
+                        android:text="@string/novo_lancamento_title_2"
                         android:gravity="center_horizontal"
                         android:textSize="25sp"
                         android:textStyle="bold"
@@ -70,6 +71,7 @@
                     android:layout_marginHorizontal="25dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    app:errorEnabled="true"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +81,7 @@
                         android:background="@color/white"
                         android:inputType="numberDecimal"
                         android:textColorHint="@color/primary"
-                        android:hint="R$"
+                        android:hint="@string/novo_lancamento_valor_hint"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +102,7 @@
                         android:id="@+id/novo_lancamento_saida"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Saída"
+                        android:text="@string/novo_lancamento_tipo_saida"
                         style="?attr/materialButtonOutlinedStyle"
                         android:textColor="@color/red"
                         />
@@ -109,7 +111,7 @@
                         android:id="@+id/novo_lancamento_entrada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Entrada"
+                        android:text="@string/novo_lancamento_tipo_entrada"
                         style="?attr/materialButtonOutlinedStyle"
                         android:textColor="@color/green"
                         />
@@ -130,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:inputType="textAutoCorrect"
-                        android:hint="Categria"
+                        android:hint="@string/novo_lancamento_categoria"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:inputType="textAutoCorrect"
-                        android:hint="Descrição"
+                        android:hint="@string/novo_lancamento_descricao"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -181,7 +183,7 @@
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:inputType="number"
-                            android:hint="Mês"
+                            android:hint="@string/novo_lancamento_mes"
                             />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -201,27 +203,26 @@
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:inputType="number"
-                            android:hint="Ano"
+                            android:hint="@string/novo_lancamento_ano"
                             />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <Button
-                    android:layout_weight="1"
                     android:id="@+id/novo_lancamento_enviar"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Salvar"
-                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_below="@id/novo_lancamento_data_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginHorizontal="85dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
                     android:backgroundTint="@color/primary"
-                    android:textColor="@color/white"
-                    />
+                    android:text="@string/novo_lancamento_enviar"
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>

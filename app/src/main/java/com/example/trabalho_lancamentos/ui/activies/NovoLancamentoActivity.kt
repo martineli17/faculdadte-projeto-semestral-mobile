@@ -4,22 +4,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ScrollView
 import android.widget.Toast
 import com.example.trabalho_lancamentos.R
 import com.example.trabalho_lancamentos.models.lancamento.AddLancamentoModel
+import com.example.trabalho_lancamentos.models.lancamento.TipoLancamento
 import com.example.trabalho_lancamentos.services.lancamento.LancamentoRetrofitFactory
-import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Response
 
 class NovoLancamentoActivity : AppCompatActivity() {
-    var tipoNovoLancamento: String = "money_in";
+    var model: AddLancamentoModel = AddLancamentoModel();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_lancamento)
 
+        setHabilitarButtonEnvio();
         setClicksTiposLancamento();
+        setValidacoes();
         setEnviodNovoLancamento();
     }
 
@@ -34,7 +37,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
             buttonEntrada.setBackgroundColor(getColor(R.color.white));
             buttonEntrada.setTextColor(getColor(R.color.green));
 
-            tipoNovoLancamento = "money_out";
+            model.Type = TipoLancamento.money_out;
         }
 
         buttonEntrada.setOnClickListener {
@@ -44,39 +47,120 @@ class NovoLancamentoActivity : AppCompatActivity() {
             buttonSaida.setBackgroundColor(getColor(R.color.white));
             buttonSaida.setTextColor(getColor(R.color.red));
 
-            tipoNovoLancamento = "money_in";
+            model.Type = TipoLancamento.money_in;
         }
+    }
+
+    fun setValidacoes(){
+        var fieldValor = findViewById<EditText>(R.id.novo_lancamento_valor);
+        var fieldMes = findViewById<EditText>(R.id.novo_lancamento_data_mes);
+        var fieldAno = findViewById<EditText>(R.id.novo_lancamento_data_ano);
+        var fieldDescricao = findViewById<EditText>(R.id.novo_lancamento_descricao);
+        var fieldCategoria = findViewById<EditText>(R.id.novo_lancamento_categoria);
+
+        fieldValor.setOnFocusChangeListener { view, focus ->
+            if(!focus){
+                if(!fieldValor.text.toString().isNullOrEmpty())
+                    model.Cash = fieldValor.text.toString().toDouble();
+                if(!model.validarCash())
+                    fieldValor.error = "Valor informado está inválido";
+                else
+                    fieldValor.error = null;
+
+                setHabilitarButtonEnvio();
+            }
+        }
+
+        fieldMes.setOnFocusChangeListener { view, focus ->
+            if(!focus){
+               if(!fieldMes.text.toString().isNullOrEmpty())
+                    model.Month = fieldMes.text.toString().toInt();
+                if(!model.validarMonth())
+                    fieldMes.error = "Mês informado está inválido";
+                else
+                    fieldMes.error = null;
+
+                setHabilitarButtonEnvio();
+            }
+        }
+
+        fieldAno.setOnFocusChangeListener { view, focus ->
+            if(!focus){
+                if(!fieldAno.text.toString().isNullOrEmpty())
+                    model.Year = fieldAno.text.toString().toInt();
+                if(!model.validarYear())
+                    fieldAno.error = "Ano informado está inválido"
+                else
+                    fieldAno.error = null;
+
+                setHabilitarButtonEnvio();
+            }
+        }
+
+        fieldDescricao.setOnFocusChangeListener { view, focus ->
+            if(!focus){
+                model.Description = fieldDescricao.text.toString();
+                if(!model.validarDescription())
+                    fieldDescricao.error = "Descrição precisa ser informada"
+                else
+                    fieldDescricao.error = null;
+
+                setHabilitarButtonEnvio();
+            }
+        }
+
+        fieldCategoria.setOnFocusChangeListener { view, focus ->
+            if(!focus){
+                model.Category = fieldCategoria.text.toString();
+                if(!model.validarCategory())
+                    fieldCategoria.error = "Categoria precisa ser informada"
+                else
+                    fieldCategoria.error = null;
+
+                setHabilitarButtonEnvio();
+            }
+        }
+    }
+
+    fun setHabilitarButtonEnvio(){
+        var habilitar = model.validarDados();
+        var button = findViewById<Button>(R.id.novo_lancamento_enviar);
+        button.isEnabled = habilitar;
+        if(habilitar)
+            button.setBackgroundColor(getColor(R.color.primary));
+        else
+            button.setBackgroundColor(getColor(R.color.primary_disabled));
 
     }
 
-    fun createModelAdd():AddLancamentoModel{
-        var model = AddLancamentoModel();
+    fun setModelAdd(){
         model.Cash = findViewById<EditText>(R.id.novo_lancamento_valor).text.toString().toDouble();
         model.Category = findViewById<EditText>(R.id.novo_lancamento_categoria).text.toString();
         model.Month = findViewById<EditText>(R.id.novo_lancamento_data_mes).text.toString().toInt();
         model.Year = findViewById<EditText>(R.id.novo_lancamento_data_ano).text.toString().toInt();
-        model.Title = findViewById<EditText>(R.id.novo_lancamento_descricao).text.toString();
-        model.Type = tipoNovoLancamento;
-
-        return model;
+        model.Description = findViewById<EditText>(R.id.novo_lancamento_descricao).text.toString();
     }
 
     fun setEnviodNovoLancamento(){
         findViewById<Button>(R.id.novo_lancamento_enviar).setOnClickListener {
-            var model = createModelAdd();
-            var responseCall = LancamentoRetrofitFactory().lancamentoService().enviarLancamento(model);
-            responseCall.enqueue(object : retrofit2.Callback<Void>{
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if(response.code() == 201){
-                        Toast.makeText(this@NovoLancamentoActivity, "Lançamento registrado", Toast.LENGTH_LONG).show();
+            setModelAdd();
+            if(model.validarDados()){
+                var responseCall = LancamentoRetrofitFactory().lancamentoService().enviarLancamento(model);
+                responseCall.enqueue(object : retrofit2.Callback<Void>{
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if(response.code() == 201){
+                            Toast.makeText(this@NovoLancamentoActivity, getString(R.string.novo_lancamento_salvo_sucesso), Toast.LENGTH_LONG).show();
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(this@NovoLancamentoActivity, getString(R.string.error_api), Toast.LENGTH_LONG).show();
-                }
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Toast.makeText(this@NovoLancamentoActivity, getString(R.string.error_api), Toast.LENGTH_LONG).show();
+                    }
 
-            });
+                });
+            }
+            else
+                setHabilitarButtonEnvio();
         }
     }
 }
