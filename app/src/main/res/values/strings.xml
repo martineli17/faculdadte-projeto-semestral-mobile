@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Trabalho_Lancamentos</string>
+    <string name="error_api">Ocorreu um erro no processamento</string>
 </resources>
