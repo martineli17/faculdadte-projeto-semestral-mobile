@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/novo_lancamento_content"
     tools:context=".ui.activies.NovoLancamentoActivity">
+
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         >

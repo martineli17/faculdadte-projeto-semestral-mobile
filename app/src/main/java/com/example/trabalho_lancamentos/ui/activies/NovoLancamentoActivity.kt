@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ScrollView
 import android.widget.Toast
 import com.example.trabalho_lancamentos.R
 import com.example.trabalho_lancamentos.models.lancamento.AddLancamentoModel
@@ -12,6 +11,7 @@ import com.example.trabalho_lancamentos.models.lancamento.TipoLancamento
 import com.example.trabalho_lancamentos.services.lancamento.LancamentoRetrofitFactory
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class NovoLancamentoActivity : AppCompatActivity() {
     var model: AddLancamentoModel = AddLancamentoModel();
