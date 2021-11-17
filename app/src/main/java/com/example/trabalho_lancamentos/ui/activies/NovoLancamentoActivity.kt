@@ -20,6 +20,9 @@ class NovoLancamentoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_lancamento)
 
+        val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        model.User = sharedPreferences.getString("user_email", "NOT_FOUND").toString();
+
         setHabilitarButtonEnvio();
         setClicksTiposLancamento();
         setValidacoes();

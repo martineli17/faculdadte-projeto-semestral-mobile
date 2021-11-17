@@ -4,7 +4,6 @@
     <string name="novo_lancamento_salvo_sucesso">Lançamento registrado</string>
     <string name="novo_lancamento_title_1">Novo</string>
     <string name="novo_lancamento_title_2">Lançamento</string>
-    <string name="novo_lancamento_valor_hint">R$</string>
     <string name="novo_lancamento_tipo_saida">Saída</string>
     <string name="novo_lancamento_tipo_entrada">Entrada</string>
     <string name="novo_lancamento_categoria">Categria</string>
@@ -12,10 +11,10 @@
     <string name="novo_lancamento_mes">Mês</string>
     <string name="novo_lancamento_ano">Ano</string>
     <string name="novo_lancamento_enviar">Salvar</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dashboard_lancamento_title_1">Dashboard</string>
     <string name="dashboard_lancamento_saida">Saídas</string>
     <string name="dashboard_lancamento_entradas">Entradas</string>
-    <string name="dashboard_lancamento_total">Total</string>
+    <string name="dashboard_lancamento_saldo">Saldo</string>
+    <string name="real_prefix_simbolo">R$</string>
 </resources>

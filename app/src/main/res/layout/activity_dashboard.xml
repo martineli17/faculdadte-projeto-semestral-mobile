@@ -38,6 +38,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/dashboard_lancamento_data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -150,12 +151,12 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:gravity="start"
-                    android:text="@string/dashboard_lancamento_total"
+                    android:text="@string/dashboard_lancamento_saldo"
                     android:textColor="@color/primary"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/dashboard_lancamento_total_valor"
+                    android:id="@+id/dashboard_lancamento_saldo_valor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

@@ -82,7 +82,7 @@
                         android:background="@color/white"
                         android:inputType="numberDecimal"
                         android:textColorHint="@color/primary"
-                        android:hint="@string/novo_lancamento_valor_hint"
+                        android:hint="@string/real_prefix_simbolo"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>

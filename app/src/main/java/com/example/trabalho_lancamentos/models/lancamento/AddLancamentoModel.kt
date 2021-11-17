@@ -1,6 +1,7 @@
 package com.example.trabalho_lancamentos.models.lancamento
 
 class AddLancamentoModel {
+    var User: String = "";
     var Cash: Double = 0.0;
     var Month: Int = 0;
     var Year: Int = 0;
