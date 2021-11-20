@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.trabalho_lancamentos.R
+import com.example.trabalho_lancamentos.app.UserApp
 import com.example.trabalho_lancamentos.models.lancamento.GetDashboardLancamentoModel
 import com.example.trabalho_lancamentos.models.lancamento.TipoLancamento
 import com.example.trabalho_lancamentos.services.lancamento.LancamentoRetrofitFactory
@@ -16,7 +17,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class DashboardActivity : AppCompatActivity() {
-    var user: String = "";
     var listaLancamentos: List<GetDashboardLancamentoModel> = ArrayList<GetDashboardLancamentoModel>();
     var dataAtual = SimpleDateFormat("MM/yyyy").format(Date());
     var mesAtual = dataAtual.split("/").get(0);
@@ -28,15 +28,12 @@ class DashboardActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.dashboard_lancamento_data).text = dataAtual;
 
-        val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-        user = sharedPreferences.getString("user_email", "NOT_FOUND").toString();
-
         getLancamentos();
     }
 
     fun getLancamentos() {
         var responseCall =
-            LancamentoRetrofitFactory().lancamentoService().buscarLancamentos(user, anoAtual.toInt(), mesAtual.toInt());
+            LancamentoRetrofitFactory().lancamentoService().buscarLancamentos(UserApp.email, anoAtual.toInt(), mesAtual.toInt());
         responseCall.enqueue(object : retrofit2.Callback<List<GetDashboardLancamentoModel>> {
             override fun onResponse(
                 call: Call<List<GetDashboardLancamentoModel>>,

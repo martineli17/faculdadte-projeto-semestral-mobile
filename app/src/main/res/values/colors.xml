@@ -13,4 +13,5 @@
     <color name="green_select">#8ecd8e</color>
     <color name="primary">#00a5ff</color>
     <color name="primary_disabled">#B6D0E2</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

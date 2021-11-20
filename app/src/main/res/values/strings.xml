@@ -17,4 +17,14 @@
     <string name="dashboard_lancamento_entradas">Entradas</string>
     <string name="dashboard_lancamento_saldo">Saldo</string>
     <string name="real_prefix_simbolo">R$</string>
+    <string name="hintLogin">Usuário</string>
+    <string name="hintSenha">Senha</string>
+    <string name="hintNome">Nome</string>
+    <string name="hintEmail">Email</string>
+    <string name="entrar">Entrar</string>
+    <string name="login">Login</string>
+    <string name="telaLogin">Voltar para o Login</string>
+    <string name="cadastro">Realizar cadastro</string>
+    <string name="esqueceuSenha">Esqueceu Senha</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

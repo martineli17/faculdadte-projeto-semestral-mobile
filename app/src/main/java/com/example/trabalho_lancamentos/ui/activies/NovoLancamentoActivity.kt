@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.trabalho_lancamentos.R
+import com.example.trabalho_lancamentos.app.UserApp
 import com.example.trabalho_lancamentos.models.lancamento.AddLancamentoModel
 import com.example.trabalho_lancamentos.models.lancamento.TipoLancamento
 import com.example.trabalho_lancamentos.services.lancamento.LancamentoRetrofitFactory
@@ -20,8 +21,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_novo_lancamento)
 
-        val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-        model.User = sharedPreferences.getString("user_email", "NOT_FOUND").toString();
+        model.User = UserApp.email
 
         setHabilitarButtonEnvio();
         setClicksTiposLancamento();
