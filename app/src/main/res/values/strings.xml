@@ -26,5 +26,9 @@
     <string name="telaLogin">Voltar para o Login</string>
     <string name="cadastro">Realizar cadastro</string>
     <string name="esqueceuSenha">Esqueceu Senha</string>
+    <string name="novaSenha">Nova senha</string>
+    <string name="novaSenhaConfirmar">Confirmar</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="dados">Dados</string>
+    <string name="pesquisar">Pesquisar</string>
 </resources>

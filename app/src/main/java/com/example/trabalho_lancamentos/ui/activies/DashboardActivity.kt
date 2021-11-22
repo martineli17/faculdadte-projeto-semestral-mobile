@@ -33,7 +33,7 @@ class DashboardActivity : AppCompatActivity() {
 
     fun getLancamentos() {
         var responseCall =
-            LancamentoRetrofitFactory().lancamentoService().buscarLancamentos(UserApp.email, anoAtual.toInt(), mesAtual.toInt());
+            LancamentoRetrofitFactory().lancamentoService().buscarLancamentos(UserApp.email);
         responseCall.enqueue(object : retrofit2.Callback<List<GetDashboardLancamentoModel>> {
             override fun onResponse(
                 call: Call<List<GetDashboardLancamentoModel>>,
@@ -41,7 +41,8 @@ class DashboardActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     response.body()?.let { lancamentos ->
-                        listaLancamentos = lancamentos;
+                        listaLancamentos = lancamentos.filter { lancamento -> lancamento.Month == mesAtual.toInt()
+                                && lancamento.Year == anoAtual.toInt()    };
                         setSaidas();
                         setEntradas();
                         setSaldo();

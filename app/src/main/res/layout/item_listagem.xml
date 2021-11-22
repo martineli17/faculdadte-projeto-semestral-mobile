@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="9dp"
+        app:cardPreventCornerOverlap="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/DescricaoLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/descricaoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="4"
+                    android:text="Descricao: "
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    />
+
+                <TextView
+                    android:id="@+id/descricao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dataLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/DescricaoLinear">
+
+                <TextView
+                    android:id="@+id/mesText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="500"
+                    android:text="Mes: "
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    />
+
+                <TextView
+                    android:id="@+id/Mes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="100"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dataAnoLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/dataLinear">
+
+                <TextView
+                    android:id="@+id/anoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="500"
+                    android:text="Ano: "
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    />
+
+                <TextView
+                    android:id="@+id/Ano"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="100"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dinheiroLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/dataAnoLinear">
+
+                <TextView
+                    android:id="@+id/dinheiroText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="500"
+                    android:text="Valor R$: "
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    />
+
+                <TextView
+                    android:id="@+id/Dinheiro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="100"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tipoLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/dinheiroLinear">
+
+                <TextView
+                    android:id="@+id/tipoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="500"
+                    android:text="Tipo: "
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    />
+
+                <TextView
+                    android:id="@+id/tipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="100"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

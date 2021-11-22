@@ -16,4 +16,7 @@ interface IContaService {
 
     @PUT("account")
     fun update(@Body conta: ContaModel): Call<ContaModel>
+
+    @POST("account/forgot")
+    fun forgot(@Body conta: ContaModel): Call<ContaModel>
 }

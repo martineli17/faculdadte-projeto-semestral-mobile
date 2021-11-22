@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         cadastro.setOnClickListener {
             CadastroClick()
         }
+
+        var esqueceuSenha = findViewById<Button>(R.id.EsqueceuSenha)
+        esqueceuSenha.setOnClickListener {
+            EsqueceuSenha()
+        }
     }
 
     fun EntrarClick(){
@@ -47,8 +52,7 @@ class MainActivity : AppCompatActivity() {
                 if (response.code() == 200) {
 
                     response.body()?.let {
-                        var intent = Intent(this@MainActivity, DashboardActivity::class.java)
-                        intent.putExtra("conta", it)
+                        var intent = Intent(this@MainActivity, ListagemActivity::class.java)
                         UserApp.email = conta.email.toString()
                         startActivity(intent)
                         finish()
@@ -72,6 +76,12 @@ class MainActivity : AppCompatActivity() {
 
     fun CadastroClick(){
         var intent = Intent(this@MainActivity, CadastroMainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun EsqueceuSenha(){
+        var intent = Intent(this@MainActivity, EsqueciSenhaActivity::class.java)
         startActivity(intent)
         finish()
     }

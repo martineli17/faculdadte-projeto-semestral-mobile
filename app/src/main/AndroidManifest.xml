@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trabalho_lancamentos">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.UserApp"
         android:allowBackup="true"
@@ -11,14 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho_Lancamentos">
         <activity
+            android:name=".ui.activies.ListagemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activies.EsqueciSenhaActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activies.CadastroMainActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activies.DashboardActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ui.activies.NovoLancamentoActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ui.activies.MainActivity"
             android:exported="true">
@@ -29,7 +37,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

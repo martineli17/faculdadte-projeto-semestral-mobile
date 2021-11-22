@@ -7,7 +7,7 @@
     tools:context=".ui.activies.CadastroMainActivity">
 
     <LinearLayout
-        android:id="@+id/Cadastro_header"
+        android:id="@+id/EsqueceuSenha_header"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:orientation="vertical">
@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cadastro"
+                android:text="@string/esqueceuSenha"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="60dp"
                 android:textSize="25sp"
@@ -43,7 +43,7 @@
         android:layout_marginBottom="30dp">
 
         <RelativeLayout
-            android:id="@+id/blocoCadastro"
+            android:id="@+id/blocoEsqueceuSenha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
@@ -54,42 +54,23 @@
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="50dp"
-                android:hint="@string/hintNome" />
-
-            <EditText
-                android:id="@+id/UserEmail"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/UserName"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="30dp"
                 android:hint="@string/hintEmail" />
 
-            <EditText
-                android:id="@+id/UserSenha"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/UserEmail"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="30dp"
-                android:hint="@string/hintSenha"
-                android:inputType="textPassword" />
-
             <Button
-                android:id="@+id/Cadastrar"
+                android:id="@+id/Confirmar"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
-                android:layout_below="@id/UserSenha"
+                android:layout_below="@id/UserName"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:background="@color/primary"
-                android:text="@string/cadastrar" />
+                android:text="@string/novaSenhaConfirmar" />
 
             <Button
                 android:id="@+id/TelaLogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@id/Cadastrar"
+                android:layout_below="@id/Confirmar"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
