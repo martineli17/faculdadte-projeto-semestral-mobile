@@ -45,13 +45,39 @@ class ListagemActivity : AppCompatActivity() {
     }
 
     fun PesquisarClick() {
-        var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt()
-        var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt()
 
-        var entradas =
-            listAll.filter { lancamento -> lancamento.Month == mes };
+        if (findViewById<EditText>(R.id.Mes).text.toString() == "" &&
+            findViewById<EditText>(R.id.Ano).text.toString() == "") {
 
-        showLancamentos(entradas)
+            showLancamentos(listAll)
+        }else if (findViewById<EditText>(R.id.Mes).text.toString() != ""){
+
+            var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
+
+            var entradas =
+                listAll.filter { lancamento -> lancamento.Month == mes };
+
+            showLancamentos(entradas)
+        }else if (findViewById<EditText>(R.id.Ano).text.toString() != ""){
+
+            var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt()
+
+            var entradas =
+                listAll.filter { lancamento -> lancamento.Year == ano };
+            showLancamentos(entradas)
+        }else{
+            var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
+            var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt();
+
+            var entradas =
+                listAll.filter { lancamento -> lancamento.Month == mes
+                        &&  lancamento.Year == ano};
+
+            showLancamentos(entradas)
+        }
+
+
+
 
     }
 

@@ -49,7 +49,7 @@ class CadastroMainActivity : AppCompatActivity() {
 
                     var intent = Intent(this@CadastroMainActivity, MainActivity::class.java)
                     startActivity(intent)
-                    finish()
+
 
                 }else {
                     Toast.makeText(
@@ -69,7 +69,6 @@ class CadastroMainActivity : AppCompatActivity() {
     fun VoltarLoginClick(){
         var intent = Intent(this@CadastroMainActivity, MainActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
 }

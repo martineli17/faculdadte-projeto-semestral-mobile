@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                         var intent = Intent(this@MainActivity, ListagemActivity::class.java)
                         UserApp.email = conta.email.toString()
                         startActivity(intent)
-                        finish()
                     }
 
                 } else {
@@ -77,12 +76,10 @@ class MainActivity : AppCompatActivity() {
     fun CadastroClick(){
         var intent = Intent(this@MainActivity, CadastroMainActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     fun EsqueceuSenha(){
         var intent = Intent(this@MainActivity, EsqueciSenhaActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }

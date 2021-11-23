@@ -32,7 +32,6 @@ class EsqueciSenhaActivity : AppCompatActivity() {
     fun VoltarLogin() {
         var intent = Intent(this@EsqueciSenhaActivity, MainActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     fun NovaSenhaClick() {
@@ -53,7 +52,6 @@ class EsqueciSenhaActivity : AppCompatActivity() {
                     response.body()?.let {
                         var intent = Intent(this@EsqueciSenhaActivity, MainActivity::class.java)
                         startActivity(intent)
-                        finish()
                     }
 
                 } else {
