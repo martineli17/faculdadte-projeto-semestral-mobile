@@ -66,7 +66,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
                 if(!fieldValor.text.toString().isNullOrEmpty())
                     model.Cash = fieldValor.text.toString().toDouble();
                 if(!model.validarCash())
-                    fieldValor.error = "Valor informado está inválido";
+                    fieldValor.error = getString(R.string.novo_lancamento_valor_error);
                 else
                     fieldValor.error = null;
 
@@ -79,7 +79,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
                if(!fieldMes.text.toString().isNullOrEmpty())
                     model.Month = fieldMes.text.toString().toInt();
                 if(!model.validarMonth())
-                    fieldMes.error = "Mês informado está inválido";
+                    fieldMes.error = getString(R.string.novo_lancamento_mes_error);
                 else
                     fieldMes.error = null;
 
@@ -92,7 +92,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
                 if(!fieldAno.text.toString().isNullOrEmpty())
                     model.Year = fieldAno.text.toString().toInt();
                 if(!model.validarYear())
-                    fieldAno.error = "Ano informado está inválido"
+                    fieldAno.error = getString(R.string.novo_lancamento_ano_error)
                 else
                     fieldAno.error = null;
 
@@ -104,7 +104,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
             if(!focus){
                 model.Description = fieldDescricao.text.toString();
                 if(!model.validarDescription())
-                    fieldDescricao.error = "Descrição precisa ser informada"
+                    fieldDescricao.error = getString(R.string.novo_lancamento_descricao_error)
                 else
                     fieldDescricao.error = null;
 
@@ -116,7 +116,7 @@ class NovoLancamentoActivity : AppCompatActivity() {
             if(!focus){
                 model.Category = fieldCategoria.text.toString();
                 if(!model.validarCategory())
-                    fieldCategoria.error = "Categoria precisa ser informada"
+                    fieldCategoria.error = getString(R.string.novo_lancamento_categoria_error)
                 else
                     fieldCategoria.error = null;
 
