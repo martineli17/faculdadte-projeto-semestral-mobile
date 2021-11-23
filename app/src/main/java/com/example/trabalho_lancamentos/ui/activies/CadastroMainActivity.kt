@@ -54,14 +54,14 @@ class CadastroMainActivity : AppCompatActivity() {
                 }else {
                     Toast.makeText(
                         this@CadastroMainActivity,
-                        "Não foi possível realizar o cadastro!",
+                        getString(R.string.error_api),
                         Toast.LENGTH_LONG
                     ).show()
                 }
             }
 
             override fun onFailure(call: Call<ContaModel>, t: Throwable) {
-                Toast.makeText(this@CadastroMainActivity, "Não foi possível concluir a operação!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@CadastroMainActivity, getString(R.string.error_api), Toast.LENGTH_LONG).show()
             }
         })
     }

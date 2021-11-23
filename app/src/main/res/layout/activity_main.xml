@@ -48,33 +48,63 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
-            <EditText
-                android:id="@+id/UserLogin"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/UserLogin_Layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="50dp"
-                android:hint="@string/hintLogin"/>
+                app:errorEnabled="true"
+                >
 
-            <EditText
-                android:id="@+id/UserSenha"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/primary"
+                    android:hint="@string/hintLogin"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/UserSenha_Layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/UserLogin"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="30dp"
-                android:hint="@string/hintSenha"
-                android:inputType="textPassword" />
+                android:layout_below="@id/UserLogin_Layout"
+                app:errorEnabled="true"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/primary"
+                    android:hint="@string/hintSenha"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/Entrar"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/UserSenha"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UserSenha_Layout"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:background="@color/primary"
-                android:text="@string/entrar" />
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/primary"
+                android:text="@string/entrar"
+                android:textColor="@color/white"
+              />
 
             <Button
                 android:id="@+id/Cadastro"

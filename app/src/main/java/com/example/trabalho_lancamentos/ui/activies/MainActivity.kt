@@ -61,14 +61,14 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@MainActivity,
-                        "Usuário ou senha inválidos",
+                        getString(R.string.usuario_senha_invalidos),
                         Toast.LENGTH_LONG
                     ).show()
                 }
             }
 
             override fun onFailure(call: Call<ContaModel>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "Não foi possível concluir a operação!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, getString(R.string.error_api), Toast.LENGTH_LONG).show()
             }
         })
 
