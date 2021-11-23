@@ -50,30 +50,52 @@ class ListagemActivity : AppCompatActivity() {
             findViewById<EditText>(R.id.Ano).text.toString() == "") {
 
             showLancamentos(listAll)
-        }else if (findViewById<EditText>(R.id.Mes).text.toString() != ""){
+
+        }else if (findViewById<EditText>(R.id.Mes).text.toString() != "" &&
+            findViewById<EditText>(R.id.Ano).text.toString() == ""){
 
             var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
 
-            var entradas =
-                listAll.filter { lancamento -> lancamento.Month == mes };
+            if(mes > 0 && mes < 13){
+                var entradas =
+                    listAll.filter { lancamento -> lancamento.Month == mes };
 
-            showLancamentos(entradas)
-        }else if (findViewById<EditText>(R.id.Ano).text.toString() != ""){
+                showLancamentos(entradas)
+            }else{
+                Toast.makeText(
+                    this@ListagemActivity,
+                    getString(R.string.novo_lancamento_mes_error),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+        }else if (findViewById<EditText>(R.id.Ano).text.toString() != "" &&
+            findViewById<EditText>(R.id.Mes).text.toString() == ""){
 
             var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt()
 
             var entradas =
                 listAll.filter { lancamento -> lancamento.Year == ano };
             showLancamentos(entradas)
+
         }else{
             var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
             var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt();
 
-            var entradas =
-                listAll.filter { lancamento -> lancamento.Month == mes
-                        &&  lancamento.Year == ano};
+            if(mes > 0 && mes < 13){
+                var entradas =
+                    listAll.filter { lancamento -> lancamento.Month == mes && lancamento.Year == ano};
 
-            showLancamentos(entradas)
+                showLancamentos(entradas)
+            }else{
+                Toast.makeText(
+                    this@ListagemActivity,
+                    getString(R.string.novo_lancamento_mes_error),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+
         }
 
 
