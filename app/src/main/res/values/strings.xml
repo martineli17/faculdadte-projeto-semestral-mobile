@@ -29,7 +29,6 @@
     <string name="novaSenha">Nova senha</string>
     <string name="novaSenhaConfirmar">Confirmar</string>
     <string name="cadastrar">Cadastrar</string>
-    <string name="dados">Dados</string>
     <string name="pesquisar">Pesquisar</string>
     <string name="novo_lancamento_categoria_error">Categoria precisa ser informada</string>
     <string name="novo_lancamento_descricao_error">Descrição precisa ser informada</string>
@@ -37,4 +36,16 @@
     <string name="novo_lancamento_mes_error">Mês informado está inválido</string>
     <string name="novo_lancamento_valor_error">Valor informado está inválido</string>
     <string name="usuario_senha_invalidos">Usuário ou senha inválidos</string>
+    <string name="listagem_title_2">Realizados</string>
+    <string name="listagem_title_1">Lançamentos</string>
+    <string name="listagem_filtro_mes_hint">Mês</string>
+    <string name="listagem_filtro_ano_hint">Ano</string>
+    <string name="listagem_tela_dashboard">Dash</string>
+    <string name="listagem_tela_novo">Novo</string>
+    <string name="listagem_item_data">Data:</string>
+    <string name="listagem_item_valor">Valor: R$</string>
+    <string name="listagem_item_tipo_lancamento_entrada">ENTRADA</string>
+    <string name="listagem_item_tipo_lancamento_saida">SAÍDA</string>
+    <string name="listagem_item_categoria">Categooria:</string>
+    <string name="listagem_item_descricao">Descricao:</string>
 </resources>

@@ -17,10 +17,15 @@ import com.example.trabalho_lancamentos.services.lancamento.LancamentoRetrofitFa
 import com.example.trabalho_lancamentos.ui.adapters.ListagemAdapter
 import retrofit2.Call
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ListagemActivity : AppCompatActivity() {
 
     private lateinit var listAll : List<LancamentoModel>;
+    private var dataAtual = SimpleDateFormat("MM/yyyy").format(Date());
+    private var mesAtual = dataAtual.split("/").get(0);
+    private var anoAtual = dataAtual.split("/").get(1);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,87 +43,35 @@ class ListagemActivity : AppCompatActivity() {
 
         var pesquisar = findViewById<Button>(R.id.Pesquisar)
         pesquisar.setOnClickListener {
-            PesquisarClick()
+            getLancamentos()
         }
 
         getLancamentos()
     }
 
-    fun PesquisarClick() {
-
-        if (findViewById<EditText>(R.id.Mes).text.toString() == "" &&
-            findViewById<EditText>(R.id.Ano).text.toString() == "") {
-
-            showLancamentos(listAll)
-
-        }else if (findViewById<EditText>(R.id.Mes).text.toString() != "" &&
-            findViewById<EditText>(R.id.Ano).text.toString() == ""){
-
-            var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
-
-            if(mes > 0 && mes < 13){
-                var entradas =
-                    listAll.filter { lancamento -> lancamento.Month == mes };
-
-                showLancamentos(entradas)
-            }else{
-                Toast.makeText(
-                    this@ListagemActivity,
-                    getString(R.string.novo_lancamento_mes_error),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-
-        }else if (findViewById<EditText>(R.id.Ano).text.toString() != "" &&
-            findViewById<EditText>(R.id.Mes).text.toString() == ""){
-
-            var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt()
-
-            var entradas =
-                listAll.filter { lancamento -> lancamento.Year == ano };
-            showLancamentos(entradas)
-
-        }else{
-            var mes = findViewById<EditText>(R.id.Mes).text.toString().toInt();
-            var ano = findViewById<EditText>(R.id.Ano).text.toString().toInt();
-
-            if(mes > 0 && mes < 13){
-                var entradas =
-                    listAll.filter { lancamento -> lancamento.Month == mes && lancamento.Year == ano};
-
-                showLancamentos(entradas)
-            }else{
-                Toast.makeText(
-                    this@ListagemActivity,
-                    getString(R.string.novo_lancamento_mes_error),
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-
-
-        }
-
-
-
-
-    }
-
     fun DashboardClick() {
-        var intent = Intent(this@ListagemActivity, DashboardActivity()::class.java)
+        var intent = Intent(this, DashboardActivity()::class.java)
         startActivity(intent)
-        finish()
     }
 
     fun NovoClick() {
-        var intent = Intent(this@ListagemActivity, NovoLancamentoActivity::class.java)
+        var intent = Intent(this, NovoLancamentoActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
 
     fun getLancamentos() {
         val s = LancamentoRetrofitFactory().lancamentoService()
         var call = s.buscarLancamentosTodos(UserApp.email)
+        var mes = findViewById<EditText>(R.id.Mes).text.toString()
+        var ano = findViewById<EditText>(R.id.Ano).text.toString()
+
+        if(mes.isNullOrEmpty())
+            mes = mesAtual;
+
+        if(ano.isNullOrEmpty())
+            ano = anoAtual;
+
 
         call.enqueue(object : retrofit2.Callback<List<LancamentoModel>> {
             override fun onResponse(
@@ -128,21 +81,17 @@ class ListagemActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     response.body()?.let { list ->
                         listAll = list;
-                        showLancamentos(list)
+                        var firstList = list.filter { lancamento -> lancamento.Month == mes.toInt()
+                                && lancamento.Year == ano.toInt()    };
+                        showLancamentos(firstList)
                     }
-                } else {
-                    Toast.makeText(
-                        this@ListagemActivity,
-                        "Não foi possível realizar o cadastro!",
-                        Toast.LENGTH_LONG
-                    ).show()
                 }
             }
 
             override fun onFailure(call: Call<List<LancamentoModel>>, t: Throwable) {
                 Toast.makeText(
                     this@ListagemActivity,
-                    "Não foi possível concluir a operação!",
+                    getString(R.string.error_api),
                     Toast.LENGTH_LONG
                 ).show()
             }

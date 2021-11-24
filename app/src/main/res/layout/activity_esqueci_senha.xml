@@ -48,23 +48,36 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
-            <EditText
-                android:id="@+id/UserName"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/UserName_Layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="50dp"
-                android:hint="@string/hintEmail" />
+                android:layout_marginTop="50dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    android:hint="@string/hintEmail"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="@color/primary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/Confirmar"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/UserName"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/UserName_Layout"
                 android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="100dp"
                 android:layout_marginTop="30dp"
-                android:background="@color/primary"
-                android:text="@string/novaSenhaConfirmar" />
+                android:backgroundTint="@color/primary"
+                android:text="@string/novaSenhaConfirmar"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/TelaLogin"

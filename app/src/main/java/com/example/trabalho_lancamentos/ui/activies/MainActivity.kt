@@ -74,12 +74,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun CadastroClick(){
-        var intent = Intent(this@MainActivity, CadastroMainActivity::class.java)
+        var intent = Intent(this, CadastroMainActivity::class.java)
         startActivity(intent)
     }
 
     fun EsqueceuSenha(){
-        var intent = Intent(this@MainActivity, EsqueciSenhaActivity::class.java)
+        var intent = Intent(this, EsqueciSenhaActivity::class.java)
         startActivity(intent)
     }
 }
