@@ -18,15 +18,16 @@ import kotlin.collections.ArrayList
 
 class DashboardActivity : AppCompatActivity() {
     var listaLancamentos: List<GetDashboardLancamentoModel> = ArrayList<GetDashboardLancamentoModel>();
-    var dataAtual = SimpleDateFormat("MM/yyyy").format(Date());
-    var mesAtual = dataAtual.split("/").get(0);
-    var anoAtual = dataAtual.split("/").get(1);
+    var mes = "";
+    var ano = "";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        findViewById<TextView>(R.id.dashboard_lancamento_data).text = dataAtual;
+        mes = intent.getStringExtra("mes").toString();
+        ano = intent.getStringExtra("ano").toString();
+        findViewById<TextView>(R.id.dashboard_lancamento_data).text = mes + "/" + ano;
 
         getLancamentos();
     }
@@ -41,8 +42,8 @@ class DashboardActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     response.body()?.let { lancamentos ->
-                        listaLancamentos = lancamentos.filter { lancamento -> lancamento.Month == mesAtual.toInt()
-                                && lancamento.Year == anoAtual.toInt()    };
+                        listaLancamentos = lancamentos.filter { lancamento -> lancamento.Month == mes.toInt()
+                                && lancamento.Year == ano.toInt()    };
                         setSaidas();
                         setEntradas();
                         setSaldo();

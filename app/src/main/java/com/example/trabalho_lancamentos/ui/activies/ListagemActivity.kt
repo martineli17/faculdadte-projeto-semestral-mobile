@@ -22,7 +22,6 @@ import java.util.*
 
 class ListagemActivity : AppCompatActivity() {
 
-    private lateinit var listAll : List<LancamentoModel>;
     private var dataAtual = SimpleDateFormat("MM/yyyy").format(Date());
     private var mesAtual = dataAtual.split("/").get(0);
     private var anoAtual = dataAtual.split("/").get(1);
@@ -50,7 +49,18 @@ class ListagemActivity : AppCompatActivity() {
     }
 
     fun DashboardClick() {
+        var mes = findViewById<EditText>(R.id.Mes).text.toString()
+        var ano = findViewById<EditText>(R.id.Ano).text.toString()
+
+        if(mes.isNullOrEmpty())
+            mes = mesAtual;
+
+        if(ano.isNullOrEmpty())
+            ano = anoAtual;
+
         var intent = Intent(this, DashboardActivity()::class.java)
+        intent.putExtra("mes", mes)
+        intent.putExtra("ano", ano)
         startActivity(intent)
     }
 
@@ -80,7 +90,6 @@ class ListagemActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     response.body()?.let { list ->
-                        listAll = list;
                         var firstList = list.filter { lancamento -> lancamento.Month == mes.toInt()
                                 && lancamento.Year == ano.toInt()    };
                         showLancamentos(firstList)
